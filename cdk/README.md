@@ -1,4 +1,4 @@
-# Snail deployment
+# Scaffold deployment
 
 ### How to deploy
 

@@ -1,7 +1,7 @@
 {
-  "name": "snail-backend",
+  "name": "scaffold-backend",
   "version": "1.0.0",
-  "description": "Snail Project Backend",
+  "description": "Scaffold Project Backend",
   "main": "index.js",
   "engines": {
     "node": ">=14.0.0"
@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ProperPath/snail-backend.git"
+    "url": "git+https://github.com/ProperPath/scaffold-backend.git"
   },
   "author": "ProperPath",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ProperPath/snail-backend/issues"
+    "url": "https://github.com/ProperPath/scaffold-backend/issues"
   },
-  "homepage": "https://github.com/ProperPath/snail-backend#readme",
+  "homepage": "https://github.com/ProperPath/scaffold-backend#readme",
   "dependencies": {
     "aws-sdk": "^2.1228.0",
     "dotenv": "^16.0.1",

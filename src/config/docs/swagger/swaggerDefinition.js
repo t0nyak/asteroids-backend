@@ -7,9 +7,9 @@ const options = {
   swaggerDefinition: {
     openapi: '3.0.0',
     info: {
-      title: 'Snail',
+      title: 'Scaffold',
       version: '1.0.0',
-      description: 'Snail available endpoints',
+      description: 'Scaffold available endpoints',
       contact: {
         name: 'Proper path',
         url: 'https://proper.path',
@@ -21,7 +21,7 @@ const options = {
         url: `http://localhost:${port}/`,
       },
       /* {
-        url: 'http://snail-lb-229626309.eu-west-2.elb.amazonaws.com/',
+        url: 'http://scaffold-lb-229626309.eu-west-2.elb.amazonaws.com/',
       }, */
     ],
   },

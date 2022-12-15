@@ -1,6 +1,6 @@
 FROM public.ecr.aws/bitnami/node:14 AS build
 
-WORKDIR /usr/snail
+WORKDIR /usr/scaffold
 
 COPY . .
 

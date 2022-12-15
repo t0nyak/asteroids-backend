@@ -2,8 +2,8 @@ const { Effect, PolicyStatement, Role, ServicePrincipal } = require('aws-cdk-lib
 
 module.exports = class Iam {
   constructor(stack, { dynamoTablesArn, dynamoTableIndexesArn }) {
-    this.taskRole = new Role(stack, 'SnailExecutionRole', {
-      roleName: 'SnailTaskRole',
+    this.taskRole = new Role(stack, 'ScaffoldExecutionRole', {
+      roleName: 'ScaffoldTaskRole',
       assumedBy: new ServicePrincipal(`ecs-tasks.amazonaws.com`),
     });
 

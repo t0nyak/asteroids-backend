@@ -11,7 +11,7 @@ const ClusterResource = require('./resources/cluster');
 // const Route53 = require('./resources/route53');
 // const Ssm = require('./resources/ssm');
 
-module.exports = class SnailStack extends Stack {
+module.exports = class ScaffoldStack extends Stack {
   static isRollback(dockerImageTag) {
     return dockerImageTag !== 'latest';
   }
