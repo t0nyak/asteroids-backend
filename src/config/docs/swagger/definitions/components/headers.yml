@@ -1,0 +1,8 @@
+components:
+  parameters:
+    HeaderAuthToken:
+      in: header
+      name: x-auth-token
+      required: true
+      schema:
+        type: string

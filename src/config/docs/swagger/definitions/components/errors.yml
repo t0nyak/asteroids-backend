@@ -1,0 +1,45 @@
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        result:
+          type: string
+        success:
+          type: bool
+          enum: [false]
+      required:
+        - result
+        - success
+
+  responses:
+    BadRequest:
+      description: Error - Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Error - Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    InternalError:
+      description: Internal Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Forbidden:
+      description: Action denied
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'

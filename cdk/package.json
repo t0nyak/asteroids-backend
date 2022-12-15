@@ -1,0 +1,27 @@
+{
+  "name": "cdk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "scripts": {
+    "deploy": "cdk deploy --all --require-approval never",
+    "lint": "eslint ./lib ./bin",
+    "lint:fix": "eslint ./lib ./bin --fix"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-cdk-lib": "^2.54.0",
+    "cdk-ecr-deployment": "^2.5.5",
+    "cdk": "2.54.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.29.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1"
+  }
+}

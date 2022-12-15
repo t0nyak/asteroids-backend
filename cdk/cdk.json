@@ -1,0 +1,38 @@
+{
+  "app": "./bin/snail-cdk.js",
+  "context": {
+    "@aws-cdk/aws-apigateway:usagePlanKeyOrderInsensitiveId": false,
+    "@aws-cdk/aws-cloudfront:defaultSecurityPolicyTLSv1.2_2021": false,
+    "@aws-cdk/aws-rds:lowercaseDbIdentifier": false,
+    "aws-cdk-lib:stackRelativeExports": false,
+    "dev": {
+      "AWSAccountID": "321597219550",
+      "AWSRegion": "eu-west-2",
+      "App": "snail",
+      "Environment": "dev",
+      "Branch": "dev",
+      "Parameters": {
+        "Stack": {
+          "VPC_ID": "vpc-0ba5891d1a6c0e134",
+          "CLUSTER_NAME": "snail-dev-cluster",
+          "BILLING_MODE": "PAY_PER_REQUEST",
+          "CONTAINER_PORT": 3000,
+          "DOCKER_IMAGE_TAG": "latest",
+          "SSM_PATH_ROUTE_53_ZONE_ID": "TODO",
+          "SSM_VERSION_ROUTE_53_ZONE_ID": 1,
+          "CERTIFICATE_ARN": "TODO",
+          "ROUTE_53_ZONE_NAME": "TODO",
+          "TASK_CPU": 256,
+          "TASK_MEMORY_LIMIT": 512,
+          "DESIRED_TASK_COUNT": 1,
+          "JWT_SECRET_ARN": "arn:aws:secretsmanager:eu-west-2:321597219550:secret:snail/jwt/key-mt2ulI"
+        },
+        "AppEnvVariables": {
+          "PORT": "3000",
+          "DATABASE_URL": "https://dynamodb.eu-west-2.amazonaws.com",
+          "BUCKET_URL": "https://s3.eu-west-2.amazonaws.com"
+        }
+      }
+    }
+  }
+}
