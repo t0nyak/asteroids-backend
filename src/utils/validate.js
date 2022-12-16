@@ -1,0 +1,64 @@
+const isEmptyValidator = require('validator/lib/isEmpty');
+
+const isEmpty = (value) => {
+  if (
+    value === '' ||
+    value === undefined ||
+    value === null ||
+    isEmptyValidator(value, { ignore_whitespace: true })
+  ) {
+    return true;
+  }
+  return false;
+};
+
+/**
+ * @module Validate
+ */
+module.exports = {
+  /**
+   * Validate given constraints
+   * @param {Object.<valueNameToValidate, Constraint>} constraints
+   * @returns {ValidateResponse}
+   */
+  validate: (constraints) => {
+    try {
+      const invalidFields = [];
+      const validFields = {};
+
+      Object.keys(constraints).forEach((name) => {
+        const { optional, validator, value } = constraints[`${name}`];
+
+        if (optional && isEmpty(value)) {
+          return;
+        }
+
+        const { errorMessage } = validator;
+
+        if (!optional && isEmpty(value)) {
+          invalidFields.push({ field: name, error_msg: errorMessage });
+          return;
+        }
+
+        if (!validator.isValid) {
+          validFields[`${name}`] = value;
+          return;
+        }
+
+        if (!validator.isValid(value)) {
+          invalidFields.push({ field: name, error_msg: errorMessage });
+        } else {
+          validFields[`${name}`] = value;
+        }
+      });
+
+      return { errors: invalidFields, values: validFields };
+    } catch (error) {
+      return {
+        errors: [{ field: '', error_msg: 'error in validation' }],
+        values: [],
+      };
+    }
+  },
+  isEmpty,
+};

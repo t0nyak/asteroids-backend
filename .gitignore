@@ -1,0 +1,13 @@
+node_modules/
+
+.env-local
+.env
+.vscode
+
+.DS_store
+.vscode
+
+cdk/cdk.out
+src/out
+
+coveragew
