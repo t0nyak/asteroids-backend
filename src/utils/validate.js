@@ -1,26 +1,11 @@
-const isEmptyValidator = require('validator/lib/isEmpty');
-
 const isEmpty = (value) => {
-  if (
-    value === '' ||
-    value === undefined ||
-    value === null ||
-    isEmptyValidator(value, { ignore_whitespace: true })
-  ) {
+  if (value === '' || value === undefined || value === null) {
     return true;
   }
   return false;
 };
 
-/**
- * @module Validate
- */
 module.exports = {
-  /**
-   * Validate given constraints
-   * @param {Object.<valueNameToValidate, Constraint>} constraints
-   * @returns {ValidateResponse}
-   */
   validate: (constraints) => {
     try {
       const invalidFields = [];
@@ -44,7 +29,6 @@ module.exports = {
           validFields[`${name}`] = value;
           return;
         }
-
         if (!validator.isValid(value)) {
           invalidFields.push({ field: name, error_msg: errorMessage });
         } else {
@@ -60,5 +44,4 @@ module.exports = {
       };
     }
   },
-  isEmpty,
 };

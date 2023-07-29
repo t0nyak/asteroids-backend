@@ -1,8 +1,24 @@
-const logger = require('../config/log').module('base-controller');
-
+const { validate } = require('../utils/validate');
 class BaseController {
-  // eslint-disable-next-line no-empty-function, no-unused-vars
-  async _runImplementation(req, res) {}
+  constructor(constraint, useCase) {
+    this.constraint = constraint;
+    this.useCase = useCase;
+  }
+
+  async _runImplementation(req, res) {
+    let params;
+    if (this.constraint) {
+      const { errors, values } = validate(this.constraint(req));
+      if (errors.length) {
+        return this.validationFailed(res, errors);
+      }
+      params = values;
+    }
+
+    const result = await this.useCase.run(params);
+
+    return this.ok(res, result);
+  }
 
   async run(req, res) {
     try {
@@ -20,10 +36,17 @@ class BaseController {
   }
 
   fail(res, error) {
-    logger.error(error.message);
     const { statusCode = 500, payload, msgType, message } = error;
 
     return res.status(statusCode).json({ message, payload, msgType });
+  }
+
+  validationFailed(res, error) {
+    const errorPayload = {
+      message: 'Validation Error',
+      payload: typeof error[Symbol.iterator] === 'function' ? [...error] : error.message,
+    };
+    return res.status(400).json(errorPayload);
   }
 }
 

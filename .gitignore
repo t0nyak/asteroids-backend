@@ -7,7 +7,4 @@ node_modules/
 .DS_store
 .vscode
 
-cdk/cdk.out
 src/out
-
-coveragew
